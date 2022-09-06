@@ -6,32 +6,22 @@ function sortCarByYearDescendingly(cars) {
   // Apa itu side effect?
   const result = [...cars];
 
-  // Tulis code-mu disini
+  for (let i = 0; i < result.length; i++) {
+    let flag = result.length-i-1;
+    for (let j = 0; j < flag; j++) {
+      let x = result[j].year
+      let y = result[j+1].year
+      if (x < y) {
+        let temp = result[j];
+        result[j] = result[j+1];
+        result[j+1] = temp;
+      }
+    }
+  }
+  for (let i = 0; i < result.length; i++) {
+    console.log(result[i].year);
+  }
 
-
-//   for (let i = 0; i < cars.lengths; i++) {
-//     console.log(cars[i].available);
-    // for (let j = i+1; j < (cars.lengths); j++) {
-    //   if (cars[j][1].year > cars[i][1].year) {
-    //       let tmp = cars[i];
-    //       cars[i] = cars[j];
-    //       cars[j] = tmp;   
-    //   }
-    // }
-    // console.log(cars);
-// }  
-
-  // for (let i = 0; i < cars.length; i++) {
-  //   // console.log(cars[i].year);
-  //   for (let j = i+1; j < cars.lengths; j++) {
-  //     if (cars[i].year > cars[j].year) {
-  //         let tmp = cars[i];
-  //         cars[i] = cars[j];
-  //         cars[j] = tmp;   
-  //       }
-  //     }
-  //     console.log(cars[i].year);
-  //   }
 
   // Rubah code ini dengan array hasil sorting secara descending
   return result;
